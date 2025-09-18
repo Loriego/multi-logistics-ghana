@@ -16,12 +16,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== Slider =====
   const slides = document.querySelector(".slides");
-  const dots = document.querySelectorAll(".dot");
+  const slideImages = document.querySelectorAll(".slides img");
   const prevBtn = document.querySelector(".arrow.left");
   const nextBtn = document.querySelector(".arrow.right");
+  const dotsContainer = document.querySelector(".dots");
+
   let index = 0;
-  let slideCount = dots.length;
+  let slideCount = slideImages.length;
   let autoSlide;
+
+  // --- Generate dots dynamically
+  dotsContainer.innerHTML = ""; // clear existing
+  slideImages.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      showSlide(i);
+      stopAutoSlide();
+      startAutoSlide();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll(".dot");
 
   function showSlide(i) {
     index = (i + slideCount) % slideCount;
@@ -39,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(index - 1);
   }
 
-  // Auto-slide every 5s
+  // Auto-slide every 5 seconds
   function startAutoSlide() {
     autoSlide = setInterval(nextSlide, 5000);
   }
@@ -51,15 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Event Listeners
   nextBtn.addEventListener("click", () => { nextSlide(); stopAutoSlide(); startAutoSlide(); });
   prevBtn.addEventListener("click", () => { prevSlide(); stopAutoSlide(); startAutoSlide(); });
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      showSlide(i);
-      stopAutoSlide();
-      startAutoSlide();
-    });
-  });
 
-  // Init
+  // Initialize
   showSlide(index);
   startAutoSlide();
 });

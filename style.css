@@ -1,3 +1,4 @@
+/* ========== Global Styles ========== */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -31,26 +32,55 @@ nav a {
   font-weight: bold;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
   text-decoration: underline;
 }
 
-/* Hero Section */
-.hero {
+/* ========== Hero Section & Slider ========== */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.slides img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Hero Text Overlay */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  padding: 5rem 2rem;
-  background: url("images/port.jpg") center/cover no-repeat;
-  color: #fff;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 10px;
 }
 
-.hero h2 {
+.hero-text h2 {
   font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.hero p {
-  margin: 1rem 0;
+.hero-text p {
+  margin-bottom: 1rem;
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
   background: #ff9800;
@@ -59,12 +89,14 @@ nav a:hover {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
   background: #e68900;
 }
-/* WhatsApp Button */
+
+/* WhatsApp Hero Button */
 .whatsapp-btn {
   background: #25D366;
   margin-left: 10px;
@@ -74,14 +106,55 @@ nav a:hover {
   background: #1ebe5d;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #004aad;
+/* Arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
   color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+  z-index: 10;
 }
-/* General Content Section */
+
+.arrow:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.arrow.left { left: 15px; }
+.arrow.right { right: 15px; }
+
+/* Dots */
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active,
+.dot:hover {
+  background: #ff9800;
+}
+
+/* ========== Content Sections ========== */
 .content {
   max-width: 1000px;
   margin: 3rem auto;
@@ -125,7 +198,7 @@ footer {
   transform: translateX(5px);
 }
 
-/* Contact Form */
+/* ========== Contact Form ========== */
 .contact-form {
   margin-top: 2rem;
   display: flex;
@@ -168,27 +241,26 @@ footer {
 .contact-form button:hover {
   background: #003580;
 }
-/* ========== Animations ========== */
 
-/* Fade-in animation */
+/* ========== Footer ========== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #004aad;
+  color: white;
+}
+
+/* ========== Animations ========== */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Slide-up animation */
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Animation utility classes */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1.2s ease forwards;
@@ -199,119 +271,19 @@ footer {
   animation: slideUp 1.2s ease forwards;
 }
 
-/* Delay helpers */
 .delay-1 { animation-delay: 0.3s; }
 .delay-2 { animation-delay: 0.6s; }
 .delay-3 { animation-delay: 0.9s; }
-/* Slider Styles */
-.slider {
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  overflow: hidden;
-}
+.delay-4 { animation-delay: 1.2s; }
 
-.slides {
-  display: flex;
-  width: 400%; /* 4 images */
-  height: 100%;
-  animation: slide 16s infinite;
-}
-
-.slides img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Overlay Hero Text */
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
-  border-radius: 10px;
-}
-
-.hero-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero-text p {
-  margin-bottom: 1rem;
-}
-
-/* Slider Animation */
-@keyframes slide {
-  0% { transform: translateX(0); }
-  20% { transform: translateX(0); }
-  25% { transform: translateX(-100%); }
-  45% { transform: translateX(-100%); }
-  50% { transform: translateX(-200%); }
-  70% { transform: translateX(-200%); }
-  75% { transform: translateX(-300%); }
-  95% { transform: translateX(-300%); }
-  100% { transform: translateX(0); }
-}
-/* Arrows */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s;
-  z-index: 10;
-}
-
-.arrow:hover {
-  background: rgba(0,0,0,0.8);
-}
-
-.arrow.left { left: 15px; }
-.arrow.right { right: 15px; }
-
-/* Dots */
-.dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  background: rgba(255,255,255,0.6);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.dot.active,
-.dot:hover {
-  background: #ff9800;
-}
-/* Floating WhatsApp Button */
+/* ========== Floating WhatsApp Button ========== */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 60px;
   height: 60px;
-  background: white; /* White circle background */
+  background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -321,7 +293,7 @@ footer {
   transition: transform 0.3s ease;
 }
 
-.whatsapp-float img {
+.whatsapp-float svg {
   width: 40px;
   height: 40px;
 }
@@ -329,4 +301,3 @@ footer {
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
-
