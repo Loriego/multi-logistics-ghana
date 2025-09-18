@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Multi-Logistics Ghana</title>
+  <title>Get a Quote - Multi-Logistics Ghana</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,50 +15,34 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
         <li><a href="faq.html">FAQ</a></li>
-        <li><a href="quote.html">Get a Quote</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="quote.html" class="active">Get a Quote</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Contact Section -->
+  <!-- Quote Form -->
   <section class="content fade-in">
-    <h2 class="slide-up delay-1">Get in Touch</h2>
-    <div class="contact-container slide-up delay-2">
-      <!-- Contact Info -->
-      <div class="contact-info">
-        <h3>Contact Information</h3>
-        <p>📍 North Legon, Accra, Ghana</p>
-        <p>📞 +233 24 744 0127</p>
-        <p>📧 info@multi-logisticsgh.com</p>
-        <p>💬 WhatsApp: <a href="https://wa.me/233247440127" target="_blank">Chat Now</a></p>
-      </div>
+    <h2 class="slide-up delay-1">Request a Quote</h2>
+    <form class="contact-form slide-up delay-2">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Your name" required>
 
-      <!-- Contact Form -->
-      <form class="contact-form">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" placeholder="Your name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Your email" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Your email" required>
+      <label for="phone">Phone</label>
+      <input type="text" id="phone" placeholder="+233 24 000 0000" required>
 
-        <label for="message">Message</label>
-        <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
+      <label for="cargo">Cargo Type</label>
+      <input type="text" id="cargo" placeholder="e.g., Containers, Vehicles" required>
 
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+      <label for="details">Additional Details</label>
+      <textarea id="details" rows="5" placeholder="Tell us about your shipment..."></textarea>
 
-  <!-- Google Maps -->
-  <section class="map fade-in">
-    <h2 class="slide-up delay-1">Find Us</h2>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.516640037417!2d-0.1817!3d5.6506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzknMDEuOSJOIDDCsDExJzA5LjkiVw!5e0!3m2!1sen!2sgh!4v1695041550000!5m2!1sen!2sgh" 
-      width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
+      <button type="submit">Submit Request</button>
+    </form>
   </section>
 
   <!-- Footer -->
