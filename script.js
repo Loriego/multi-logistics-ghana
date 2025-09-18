@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }, { threshold: 0.2 });
+
   elements.forEach(el => {
     el.style.animationPlayState = "paused";
     observer.observe(el);
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let autoSlide;
 
   // --- Generate dots dynamically
-  dotsContainer.innerHTML = ""; // clear existing
+  dotsContainer.innerHTML = ""; // clear any existing
   slideImages.forEach((_, i) => {
     const dot = document.createElement("span");
     dot.classList.add("dot");
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const dots = document.querySelectorAll(".dot");
 
+  // --- Show slide
   function showSlide(i) {
     index = (i + slideCount) % slideCount;
     slides.style.transform = `translateX(-${index * 100}%)`;
@@ -49,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dots[index].classList.add("active");
   }
 
+  // --- Next & Previous
   function nextSlide() {
     showSlide(index + 1);
   }
@@ -57,20 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(index - 1);
   }
 
-  // Auto-slide every 5 seconds
+  // --- Auto-slide
   function startAutoSlide() {
-    autoSlide = setInterval(nextSlide, 5000);
+    autoSlide = setInterval(nextSlide, 5000); // 5s interval
   }
 
   function stopAutoSlide() {
     clearInterval(autoSlide);
   }
 
-  // Event Listeners
+  // --- Event Listeners
   nextBtn.addEventListener("click", () => { nextSlide(); stopAutoSlide(); startAutoSlide(); });
   prevBtn.addEventListener("click", () => { prevSlide(); stopAutoSlide(); startAutoSlide(); });
 
-  // Initialize
+  // --- Init
   showSlide(index);
   startAutoSlide();
 });
