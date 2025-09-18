@@ -73,6 +73,29 @@ document.addEventListener("DOMContentLoaded", () => {
   nextBtn.addEventListener("click", () => { nextSlide(); stopAutoSlide(); startAutoSlide(); });
   prevBtn.addEventListener("click", () => { prevSlide(); stopAutoSlide(); startAutoSlide(); });
 
+  // --- Swipe Support (Mobile)
+  let startX = 0;
+  let endX = 0;
+
+  slides.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slides.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+    let diff = startX - endX;
+
+    if (Math.abs(diff) > 50) { // swipe threshold
+      if (diff > 0) {
+        nextSlide(); // swipe left → next
+      } else {
+        prevSlide(); // swipe right → previous
+      }
+      stopAutoSlide();
+      startAutoSlide();
+    }
+  });
+
   // --- Init
   showSlide(index);
   startAutoSlide();
