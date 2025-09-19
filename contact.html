@@ -36,19 +36,25 @@
         <p>💬 WhatsApp: <a href="https://wa.me/233247440127" target="_blank">Chat Now</a></p>
       </div>
 
-      <!-- Contact Form -->
-      <form class="contact-form">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" placeholder="Your name" required>
+      <form action="https://formspree.io/f/mandrjra" method="POST" class="contact-form">
+  <label for="name">Full Name</label>
+  <input type="text" id="name" name="name" placeholder="Your name" required>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Your email" required>
+  <label for="email">Email</label>
+  <input type="email" id="email" name="_replyto" placeholder="Your email" required>
 
-        <label for="message">Message</label>
-        <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
+  <label for="phone">Phone Number</label>
+  <input type="tel" id="phone" name="phone" placeholder="+233 24 744 0127">
 
-        <button type="submit">Send Message</button>
-      </form>
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+
+  <!-- Redirect after submission -->
+  <input type="hidden" name="_redirect" value="https://www.multi-logisticsghana.com/thank-you.html">
+
+  <button type="submit">Send Message</button>
+</form>
+
     </div>
   </section>
 
