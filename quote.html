@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Request a freight forwarding, customs clearance, import, export, air freight or sea freight quote from Multi-Logistics Ghana." />
   <title>Request a Quote | Multi-Logistics Ghana</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,15 +18,21 @@
       <span>Multi-Logistics Ghana</span>
     </a>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="quote.html" class="active">Get Quote</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+```
+<ul class="nav-links">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="services.html">Services</a></li>
+  <li><a href="quote.html" class="active">Get Quote</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="faq.html">FAQ</a></li>
+  <li><a href="blog.html">Blog</a></li>
+</ul>
 
-    <a href="https://wa.me/233247440127" class="nav-cta" target="_blank">WhatsApp Us</a>
+<a href="https://wa.me/233247440127" class="nav-cta" target="_blank">WhatsApp Us</a>
+<button class="menu-toggle" id="menuToggle">☰</button>
+```
+
   </nav>
 </header>
 
@@ -43,92 +51,105 @@
   <div class="quote-info">
     <p class="section-tag">Start Here</p>
     <h2>Move your cargo with confidence.</h2>
-    <p>
-      Complete the form with your cargo details. Whether it is sea freight, air freight,
-      vehicle import, customs clearance or door-to-door delivery, we are ready to assist.
-    </p>
 
-    <div class="quote-benefits">
-      <p>✓ Fast response from our team</p>
-      <p>✓ Clear shipping guidance</p>
-      <p>✓ Professional documentation support</p>
-      <p>✓ Trusted Ghana port clearance service</p>
-    </div>
+```
+<p>
+  Complete the form with your cargo details. Whether it is sea freight,
+  air freight, vehicle import, customs clearance or door-to-door delivery,
+  we are ready to assist.
+</p>
+
+<div class="quote-benefits">
+  <p>✓ Fast response from our team</p>
+  <p>✓ Clear shipping guidance</p>
+  <p>✓ Professional documentation support</p>
+  <p>✓ Trusted Ghana port clearance service</p>
+  <p>✓ Air & Sea Freight Options</p>
+  <p>✓ Nationwide Delivery Support</p>
+</div>
+```
+
   </div>
 
   <form action="https://formspree.io/f/mandrjra" method="POST" class="premium-form">
-    <div class="form-row">
-      <div>
-        <label>Full Name</label>
-        <input type="text" name="name" placeholder="Your full name" required>
-      </div>
 
-      <div>
-        <label>Phone Number</label>
-        <input type="tel" name="phone" placeholder="+233 24 000 0000" required>
-      </div>
-    </div>
+```
+<div class="form-row">
+  <div>
+    <label>Full Name</label>
+    <input type="text" name="name" placeholder="Your full name" required>
+  </div>
 
-    <div class="form-row">
-      <div>
-        <label>Email Address</label>
-        <input type="email" name="_replyto" placeholder="you@example.com" required>
-      </div>
+  <div>
+    <label>Phone Number</label>
+    <input type="tel" name="phone" placeholder="+233 24 000 0000" required>
+  </div>
+</div>
 
-      <div>
-        <label>Service Needed</label>
-        <select name="service" required>
-          <option value="">Select service</option>
-          <option>Sea Freight</option>
-          <option>Air Freight</option>
-          <option>Customs Clearance</option>
-          <option>Door-to-Door Delivery</option>
-          <option>Warehousing</option>
-          <option>Vehicle Import Support</option>
-          <option>Import / Export Consultancy</option>
-        </select>
-      </div>
-    </div>
+<div class="form-row">
+  <div>
+    <label>Email Address</label>
+    <input type="email" name="_replyto" placeholder="you@example.com" required>
+  </div>
 
-    <div class="form-row">
-      <div>
-        <label>Origin Country / Port</label>
-        <input type="text" name="origin" placeholder="e.g. China, USA, Dubai">
-      </div>
+  <div>
+    <label>Service Needed</label>
+    <select name="service" required>
+      <option value="">Select Service</option>
+      <option>Sea Freight</option>
+      <option>Air Freight</option>
+      <option>Customs Clearance</option>
+      <option>Door-to-Door Delivery</option>
+      <option>Warehousing</option>
+      <option>Vehicle Import Support</option>
+      <option>Import & Export Consultancy</option>
+    </select>
+  </div>
+</div>
 
-      <div>
-        <label>Destination</label>
-        <input type="text" name="destination" placeholder="e.g. Tema, Accra, Kumasi">
-      </div>
-    </div>
+<div class="form-row">
+  <div>
+    <label>Origin Country / Port</label>
+    <input type="text" name="origin" placeholder="China, USA, Dubai etc.">
+  </div>
 
-    <div class="form-row">
-      <div>
-        <label>Cargo Type</label>
-        <input type="text" name="cargo_type" placeholder="e.g. Vehicle, container, electronics">
-      </div>
+  <div>
+    <label>Destination</label>
+    <input type="text" name="destination" placeholder="Tema, Accra, Kumasi etc.">
+  </div>
+</div>
 
-      <div>
-        <label>Estimated Weight / Size</label>
-        <input type="text" name="cargo_size" placeholder="e.g. 20ft container, 500kg">
-      </div>
-    </div>
+<div class="form-row">
+  <div>
+    <label>Cargo Type</label>
+    <input type="text" name="cargo_type" placeholder="Vehicle, Electronics, Container">
+  </div>
 
-    <div>
-      <label>Additional Details</label>
-      <textarea name="message" rows="6" placeholder="Tell us more about your shipment..."></textarea>
-    </div>
+  <div>
+    <label>Estimated Weight / Size</label>
+    <input type="text" name="cargo_size" placeholder="20ft Container, 500kg etc.">
+  </div>
+</div>
 
-    <input type="hidden" name="_redirect" value="https://www.multi-logisticsghana.com/thank-you.html">
+<div>
+  <label>Additional Details</label>
+  <textarea name="message" rows="6" placeholder="Tell us more about your shipment..."></textarea>
+</div>
 
-    <button type="submit">Submit Quote Request</button>
+<input type="hidden" name="_redirect" value="https://www.multi-logisticsghana.com/thank-you.html">
+
+<button type="submit">Submit Quote Request</button>
+```
+
   </form>
 </section>
 
 <section class="cta-premium">
   <h2>Prefer WhatsApp?</h2>
   <p>Chat directly with our team for faster assistance.</p>
-  <a href="https://wa.me/233247440127" target="_blank" class="btn gold">Chat on WhatsApp</a>
+  <a href="https://wa.me/233247440127" target="_blank" class="btn gold">
+    Chat on WhatsApp
+  </a>
 </section>
 
 <footer class="premium-footer">
@@ -150,11 +171,14 @@
     <a href="services.html">Services</a>
     <a href="quote.html">Get Quote</a>
     <a href="contact.html">Contact</a>
+    <a href="faq.html">FAQ</a>
+    <a href="blog.html">Blog</a>
   </div>
 </footer>
 
-<a href="https://wa.me/233247440127" target="_blank" class="whatsapp-float">💬</a>
+<a href="quote.html" class="floating-quote">Get Quote</a> <a href="https://wa.me/233247440127" target="_blank" class="whatsapp-float">💬</a> <button class="scroll-top" id="scrollTop">↑</button>
 
 <script src="script.js"></script>
+
 </body>
 </html>
