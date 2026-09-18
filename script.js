@@ -14,10 +14,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   // Mobile menu
   if (menuToggle && navLinks) {
+    navLinks.id = "primary-navigation";
+    menuToggle.setAttribute("aria-controls", navLinks.id);
+    menuToggle.setAttribute("aria-label", "Toggle navigation");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open"); menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false"); menuToggle.focus();
+      }
+    });
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(navLinks.classList.contains("open")));
       menuToggle.textContent = navLinks.classList.contains("open") ? "×" : "☰";
     });
 
@@ -25,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
         menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
       });
     });
   }
@@ -43,28 +56,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.15 });
 
   revealItems.forEach(item => {
+    if (reducedMotion) return;
     item.classList.add("reveal");
     observer.observe(item);
   });
 
-  // Fake tracking response
+  // Open a user-confirmed WhatsApp enquiry; no fabricated tracking response.
   if (trackingForm && trackingInput) {
-    trackingForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
+    trackingForm.addEventListener("submit", (event) => {
+      event.preventDefault();
       const value = trackingInput.value.trim();
-
-      if (!value) {
-        alert("Please enter your tracking number.");
-        return;
-      }
-
-      alert(
-        `Tracking request received for: ${value}\n\nOur logistics team will verify your cargo status and contact you shortly.`
-      );
-
-      trackingInput.value = "";
+      if (!value) { trackingInput.setCustomValidity("Enter a shipment or container number."); trackingInput.reportValidity(); return; }
+      window.location.href = "https://wa.me/233543370687?text=" + encodeURIComponent("Hello Multi-Logistics Ghana, please help me check the status of shipment/container: " + value);
     });
+    trackingInput.addEventListener("input", () => trackingInput.setCustomValidity(""));
   }
 
   // Scroll to top
@@ -78,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     scrollTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
     });
   }
 
@@ -90,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.isIntersecting) {
         const counter = entry.target;
         const target = Number(counter.dataset.count);
+        if (reducedMotion) { counter.textContent = target + "+"; counterObserver.unobserve(counter); return; }
         let current = 0;
         const increment = Math.ceil(target / 80);
 

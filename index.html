@@ -8,9 +8,11 @@
   <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="apple-touch-icon" href="images/logo.png">
   <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="experience.css" />
 </head>
 
-<body>
+<body class="experience-home">
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="premium-header">
   <nav class="navbar">
@@ -36,11 +38,17 @@
   </nav>
 </header>
 
-<section class="hero-premium">
+<main id="main">
+<section class="hero-premium" aria-label="Welcome to Multi-Logistics Ghana">
+  <div class="hero-scenes" aria-hidden="true">
+    <img class="scene active" src="images/container-ship.webp" alt="" fetchpriority="high">
+    <img class="scene" src="images/cargo-plane.webp" alt="" loading="lazy">
+    <img class="scene" src="images/truck.webp" alt="" loading="lazy">
+  </div>
   <div class="hero-content">
-    <p class="hero-tag">Freight • Customs Clearance • Delivery</p>
+    <p class="hero-tag">TEMA, GHANA · CONNECTED TO THE WORLD</p>
 
-    <h1>Moving Global Trade<br>With Speed & Confidence</h1>
+    <h1>Your cargo.<br>Our commitment.<br><em>Every mile.</em></h1>
 
     <p class="hero-desc">
       Professional freight forwarding, customs clearance, cargo consolidation
@@ -67,75 +75,43 @@
       </div>
     </div>
   </div>
+  <div class="scene-controls" aria-label="Homepage slideshow">
+    <span id="scene-label">01 / SEA FREIGHT</span>
+    <button type="button" id="scene-next" aria-label="Next image">Next view →</button>
+    <button type="button" id="motion-toggle" aria-pressed="false">Pause motion</button>
+  </div>
 </section>
 
 <section class="tracking-card">
   <div>
-    <h2>Track Your Shipment</h2>
-    <p>Enter your shipment or container number for quick support.</p>
+    <h2>Ask About Your Shipment</h2>
+    <p>Send your shipment or container number to our team on WhatsApp for a status update.</p>
   </div>
 
   <form>
-    <input type="text" placeholder="Enter tracking number">
-    <button type="submit">Track Cargo</button>
+    <label class="sr-only" for="shipment-number">Shipment or container number</label><input id="shipment-number" type="text" placeholder="Shipment / container number" maxlength="100" required>
+    <button type="submit">Continue on WhatsApp ↗</button>
   </form>
 </section>
 
-<section class="stats-section">
-  <div class="stats-grid">
-    <div class="stat-box">
-      <h2 data-count="500">0</h2>
-      <p>Successful Shipments</p>
-    </div>
-
-    <div class="stat-box">
-      <h2 data-count="100">0</h2>
-      <p>Business Clients</p>
-    </div>
-
-    <div class="stat-box">
-      <h2 data-count="15">0</h2>
-      <p>Global Partners</p>
-    </div>
-
-    <div class="stat-box">
-      <h2 data-count="24">0</h2>
-      <p>Hour Support</p>
-    </div>
+<section class="service-explorer section" aria-labelledby="explorer-title">
+  <div class="section-heading"><div><p class="section-tag">ONE PARTNER. EVERY STEP.</p><h2 id="explorer-title">Built around<br>your next move.</h2></div><p>From international freight to the final delivery, explore the support your cargo needs.</p></div>
+  <div class="service-tabs" role="tablist" aria-label="Explore services">
+    <button id="tab-sea" role="tab" aria-selected="true" aria-controls="service-panel" data-service="0">01 Sea freight</button>
+    <button id="tab-air" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="1">02 Air freight</button>
+    <button id="tab-customs" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="2">03 Customs</button>
+    <button id="tab-road" role="tab" aria-selected="false" aria-controls="service-panel" tabindex="-1" data-service="3">04 Delivery</button>
   </div>
-</section>
-
-<section class="section">
-  <p class="section-tag">What We Do</p>
-  <h2>Premium Logistics Services</h2>
-
-  <div class="premium-grid">
-    <div class="premium-card">
-      <span>🚢</span>
-      <h3>Sea Freight</h3>
-      <p>Efficient container shipping and cargo handling through Ghana’s major ports.</p>
-    </div>
-
-    <div class="premium-card">
-      <span>✈️</span>
-      <h3>Air Freight</h3>
-      <p>Fast international air cargo movement for urgent and valuable shipments.</p>
-    </div>
-
-    <div class="premium-card">
-      <span>📦</span>
-      <h3>Customs Clearance</h3>
-      <p>Professional documentation and port clearance with reduced delays.</p>
-    </div>
-
-    <div class="premium-card">
-      <span>🚚</span>
-      <h3>Door-to-Door Delivery</h3>
-      <p>Reliable delivery from port or warehouse directly to your destination.</p>
-    </div>
+  <div id="service-panel" class="service-panel" role="tabpanel" aria-labelledby="tab-sea" tabindex="0">
+    <img id="service-image" src="images/container-ship.webp" alt="Container ship at sea" loading="lazy">
+    <div><p class="section-tag" id="service-tag">SEA FREIGHT</p><h3 id="service-title">Big possibilities.<br>Carefully coordinated.</h3><p id="service-description">Container shipping and cargo handling through Ghana’s major ports, with guidance from origin to arrival.</p><a id="service-quote" class="btn gold" href="quote.html?service=Sea%20Freight">Request a sea freight quote ↗</a></div>
   </div>
+  <noscript><p><a href="services.html">Explore all our logistics services</a></p></noscript>
 </section>
-
+<section class="journey section" aria-labelledby="journey-title">
+  <p class="section-tag">CLEAR STEPS. PERSONAL SUPPORT.</p><h2 id="journey-title">From your first enquiry<br>to the final handover.</h2>
+  <div class="journey-grid"><article><span>01</span><h3>Tell us what’s moving</h3><p>Share your cargo, origin and destination. We’ll help identify the service you need.</p></article><article><span>02</span><h3>Plan the details</h3><p>Discuss documentation, pricing and the next steps with our logistics team.</p></article><article><span>03</span><h3>Stay in touch</h3><p>Contact your team for shipment updates and delivery coordination.</p></article></div>
+</section>
 <section class="why-section">
   <div>
     <p class="section-tag">Why Choose Us</p>
@@ -187,6 +163,7 @@
   <a href="quote.html" class="btn gold">Get a Quote Now</a>
 </section>
 
+</main>
 <footer class="premium-footer">
 
   <div>
@@ -288,5 +265,6 @@
 <button class="scroll-top" id="scrollTop">↑</button>
 
 <script src="script.js"></script>
+<script src="experience.js"></script>
 </body>
 </html>
